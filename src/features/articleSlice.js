@@ -38,8 +38,10 @@ const articleSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchAllArticles.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.articles = action.payload;
+        if (state.selectedCategory === "all") {
+          state.status = "succeeded";
+          state.articles = action.payload;
+        }
       })
       .addCase(fetchAllArticles.rejected, (state, action) => {
         state.status = "failed";
@@ -49,8 +51,10 @@ const articleSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchArticlesByCategory.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.articles = action.payload;
+        if (state.selectedCategory === action.meta.arg) {
+          state.status = "succeeded";
+          state.articles = action.payload;
+        }
       })
       .addCase(fetchArticlesByCategory.rejected, (state, action) => {
         state.status = "failed";
