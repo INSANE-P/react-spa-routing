@@ -9,6 +9,7 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./styles/theme";
 import Header from "./components/header";
 import Main from "./components/main";
+import NotFound from "./components/NotFound";
 
 function App() {
   const isDarkMode = useSelector((state) => state.darkMode.isDarkMode);
@@ -27,8 +28,8 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/:category" element={<Main />} />
+            <Route path="/:category?" element={<Main />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
       </BrowserRouter>
