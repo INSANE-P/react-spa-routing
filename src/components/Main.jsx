@@ -5,6 +5,7 @@ import { setSelectedCategory } from "../features/articleSlice";
 import NewsCard from "./NewsCard";
 import { availableURLCategories } from "../constants/categories";
 import styled from "styled-components";
+import { toast } from "react-toastify";
 
 const MessageContainer = styled.div`
   padding: 16px;
@@ -35,7 +36,19 @@ const Main = () => {
     if (!category || availableURLCategories.includes(category)) {
       dispatch(setSelectedCategory(category || "all"));
     } else {
-      alert("유효하지 않은 URL 입니다. 메인으로 이동합니다.");
+      toast("유효하지 않은 URL입니다. 메인으로 이동합니다.", {
+        position: "top-center",
+        limit: 1,
+        autoClose: 1000,
+        closeButton: false,
+        hideProgressBar: true,
+        style: {
+          backgroundColor: "#317252",
+          color: "#ffffff",
+          fontWeight: "bold",
+          borderRadius: "8px",
+        },
+      });
       navigate("/", { replace: true });
     }
   }, [category]);
