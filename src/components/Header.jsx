@@ -91,16 +91,6 @@ const DarkModeButton = styled.button`
     transform: scale(1.1);
   }
 `;
-const HiddenDarkModeState = styled.span`
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-`;
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -123,13 +113,9 @@ const Header = () => {
         ))}
       </CategoryNav>
       <DarkModeButton
-        aria-label="다크 모드 버튼"
+        aria-label={isDarkMode ? "라이트 모드 전환" : "다크 모드 전환"}
         onClick={() => dispatch(toggleDarkMode())}
-      >
-        <HiddenDarkModeState>
-          현재 상태: {isDarkMode ? "다크 모드" : "라이트 모드"}
-        </HiddenDarkModeState>
-      </DarkModeButton>
+      ></DarkModeButton>
     </HeaderContainer>
   );
 };
