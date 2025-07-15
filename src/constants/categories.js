@@ -1,4 +1,4 @@
-export const categories = [
+export const CATEGORIES = Object.freeze([
   "All",
   "Business",
   "Entertainment",
@@ -6,15 +6,13 @@ export const categories = [
   "Science",
   "Sports",
   "Technology",
-];
+]);
 
-export const availableURLCategories = [
+export const AVAILABLE_URL_CATEGORIES = Object.freeze([
   "business",
   "entertainment",
   "health",
   "science",
   "sports",
   "technology",
-];
-
-export default categories;
+]);

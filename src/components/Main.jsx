@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { setSelectedCategory } from "../features/articleSlice";
 import NewsCard from "./NewsCard";
-import { availableURLCategories } from "../constants/categories";
+import { AVAILABLE_URL_CATEGORIES } from "../constants/categories";
 import styled from "styled-components";
 import { toast } from "react-toastify";
 
@@ -33,7 +33,7 @@ const Main = () => {
   const error = useSelector((state) => state.article.error);
 
   useEffect(() => {
-    if (!category || availableURLCategories.includes(category)) {
+    if (!category || AVAILABLE_URL_CATEGORIES.includes(category)) {
       dispatch(setSelectedCategory(category || "all"));
     } else {
       toast("유효하지 않은 URL입니다. 메인으로 이동합니다.", {

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode } from "../features/darkModeSlice";
-import { categories } from "../constants/categories";
+import { CATEGORIES } from "../constants/categories";
 import styled from "styled-components";
 import LogoImage from "../assets/greedynewsicon.jpg";
 import BatSignalIcon from "../assets/batSignal.png";
@@ -103,7 +103,7 @@ const Header = () => {
         <SiteLogo src={LogoImage} alt="Greedy News Logo" />
       </HomeLink>
       <CategoryNav>
-        {categories.map((category) => (
+        {CATEGORIES.map((category) => (
           <CategoryLink
             key={category}
             to={category === "All" ? "/" : `/${category.toLowerCase()}`}
